@@ -21,3 +21,14 @@ const port = 8000;
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
+
+// Custom middleware
+// app.use(SortMiddleware);
+
+// actions --> dispatcher --> funciton handler
+
+route(app);
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
+});
