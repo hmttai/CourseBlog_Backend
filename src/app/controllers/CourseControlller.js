@@ -19,7 +19,10 @@ const CourseController = {
   // [POST] /courses/store
   store: async (req, res, next) => {
     try {
-      
+      const formData = req.body;
+      formData.image = `https://img.youtube.com/vi/${formData.videoid}/sddefault.jpg`;
+      const course = new Course(formData);
+      const data = await course.save();
       res.status(200).json({ data: data });
     } catch (err) {
       res.status(500).json(err);
